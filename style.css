@@ -1,11 +1,86 @@
-*{
-    margin: 0;
-    padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+* {
+    margin: 0;                     /* Removes default outer spacing from ALL elements */
+    padding: 0;                    /* Removes default inner spacing from ALL elements */
+    font-family: 'Poppins', sans-serif; /* Sets 'Poppins' font for ALL elements; if unavailable, uses a generic sans-serif */
+    box-sizing: border-box;        /* Makes element width/height include padding & border (easier layout control) */
 }
 
 body {
-    background: #080808;
+    background: #080808;           /* Sets the background color of the page to a very dark shade (near black) */
+    color: #fff;                   /* Sets the default text color to white */
+}
+
+
+/* header section */
+#header {
+    width: 100%;                             /*header take the full width of the browser window */
+    height: 100vh;                           /* Sets the header height to 100% of the viewport height (vh = viewport height unit) */
+    background-image: url(images/background.png); 
+    background-size: cover;                  /* Scales the background image so it completely covers the area, cropping if necessary */
+    background-position: center;             /* Positions the background image so its center is aligned with the center of the element */
+}
+
+/* Navabar */
+.container {
+    padding: 10px 10%;      /* Adds 10px padding on top & bottom, and 10% of the element's width as padding on left & right */
+}
+
+nav {
+    display: flex;       
+    align-items: center;    
+    justify-content: space-between; /* Places the first child at the far left, last child at the far right, with space between them */
+    flex-wrap: wrap;        /* Allows items to wrap onto a new line if they don't fit in one row */
+}
+
+.logo{
+    width: 140px;
+}
+
+nav ul li{
+    display: inline-block;      /*   display horizontally */
+    list-style: none;
+    margin: 10px 20px;
+    
+}
+
+nav ul li a{
     color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    position: relative;
+}
+
+
+/* for red line below each navbar links */
+
+nav ul li a::after {
+    content: ' ';                /* Creates a pseudo-element after the <a> tag; required for it to exist */
+    width: 0%;                    /* Starts with zero width (relative to the <a> element’s width) */
+    height: 3px;                  /* Height of the underline effect */
+    background: #ff004f;          /* Color of the underline effect (a bright pink/red) */
+    position: absolute;           /* Positions the underline relative to the nearest positioned ancestor (usually the <a>) */
+    left: 0;                       /* Aligns the underline to the left edge of the <a> */
+    bottom: -6px;                  /* Places the underline slightly below the <a> text */
+    transition: 0.5s;              /* Smoothly animates property changes over 0.5 seconds (used for the width change on hover) */
+}
+
+nav ul li a:hover::after {
+    width: 100%;                   /* On hover, the underline grows to match the full width of the <a> */
+}
+
+
+
+/* for header text */
+.header-text{
+    margin-top: 20%;
+    font-size: 30px;
+}
+
+.header-text h1{
+    font-size: 60px;
+    margin-top: 20px;
+}
+
+.header-text h1 span{
+    color: #ff004f;
 }
