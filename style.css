@@ -1,48 +1,35 @@
 * {
-    margin: 0;
-    /* Removes default outer spacing from ALL elements */
-    padding: 0;
-    /* Removes default inner spacing from ALL elements */
-    font-family: 'Poppins', sans-serif;
-    /* Sets 'Poppins' font for ALL elements; if unavailable, uses a generic sans-serif */
-    box-sizing: border-box;
-    /* Makes element width/height include padding & border (easier layout control) */
+    margin: 0;                                     /* Removes default outer spacing from ALL elements */
+    padding: 0;                                   /* Removes default inner spacing from ALL elements */
+    font-family: 'Poppins', sans-serif;            /* Sets 'Poppins' font for ALL elements; if unavailable, uses a generic sans-serif */
+    box-sizing: border-box;                       /* Makes element width/height include padding & border (easier layout control) */
 }
 
 body {
-    background: #080808;
-    /* Sets the background color of the page to a very dark shade (near black) */
-    color: #fff;
-    /* Sets the default text color to white */
+    background: #080808;                       /* Sets the background color of the page to a very dark shade (near black) */
+    color: #fff;                               /* Sets the default text color to white */
 }
 
 
 /* -------------header section------------- */
 #header {
-    width: 100%;
-    /*header take the full width of the browser window */
-    height: 100vh;
-    /* Sets the header height to 100% of the viewport height (vh = viewport height unit) */
+    width: 100%;                               /*header take the full width of the browser window */
+    height: 100vh;                              /* Sets the header height to 100% of the viewport height (vh = viewport height unit) */
     background-image: url(images/background.png);
-    background-size: cover;
-    /* Scales the background image so it completely covers the area, cropping if necessary */
-    background-position: center;
-    /* Positions the background image so its center is aligned with the center of the element */
+    background-size: cover;                         /* Scales the background image so it completely covers the area, cropping if necessary */
+    background-position: center;                    /* Positions the background image so its center is aligned with the center of the element */
 }
 
 /* .........Navabar........ */
 .container {
-    padding: 10px 10%;
-    /* Adds 10px padding on top & bottom, and 10% of the element's width as padding on left & right */
+    padding: 10px 10%;                         /* Adds 10px padding on top & bottom, and 10% of the element's width as padding on left & right */
 }
 
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    /* Places the first child at the far left, last child at the far right, with space between them */
-    flex-wrap: wrap;
-    /* Allows items to wrap onto a new line if they don't fit in one row */
+    justify-content: space-between;                  /* Places the first child at the far left, last child at the far right, with space between them */
+    flex-wrap: wrap;                                /* Allows items to wrap onto a new line if they don't fit in one row */
 }
 
 .logo {
@@ -50,8 +37,7 @@ nav {
 }
 
 nav ul li {
-    display: inline-block;
-    /*   display horizontally */
+    display: inline-block;                         /*   display horizontally */
     list-style: none;
     margin: 10px 20px;
 
@@ -68,8 +54,7 @@ nav ul li a {
 /* for red line below each navbar links */
 
 nav ul li a::after {
-    content: ' ';
-    /* Creates a pseudo-element after the <a> tag; required for it to exist */
+    content: ' ';                        /* Creates a pseudo-element after the <a> tag; required for it to exist */
     width: 0%;
     /* Starts with zero width (relative to the <a> element’s width) */
     height: 3px;
@@ -160,7 +145,7 @@ nav ul li a:hover::after {
 }
 
 /* red line under tab links */
-.tab-links::after{
+.tab-links::after {
     content: ' ';
     width: 0;
     height: 3px;
@@ -171,27 +156,79 @@ nav ul li a:hover::after {
     transition: 0.5s;
 }
 
-.tab-links.active-link::after{        /* making by default active of skill tab */
+.tab-links.active-link::after {
+    /* making by default active of skill tab */
     width: 50%;
 }
 
 
 /* tab contents */
-.tab-contents ul li{
+.tab-contents ul li {
     list-style: none;
     margin: 10px 0;
 }
 
-.tab-contents ul li span{
+.tab-contents ul li span {
     color: #b54769;
     font-size: 14px;
-}   
-
-
-.tab-contents{
-    display: none;        /* hide all the tab contents */
 }
 
-.tab-contents.active-tab{
-    display: block;         /* shows only active tag */
+
+.tab-contents {
+    display: none;
+    /* hide all the tab contents */
+}
+
+.tab-contents.active-tab {
+    display: block;
+    /* shows only active tag */
+}
+
+
+
+
+/* -----------------Services section --------------------- */
+#services{
+    padding: 30px 0;
+}
+
+.services-list {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));   /* Creates as many columns as possible (auto-fit) 
+                                                                         Each column is at least 250px wide, but can expand to take up available space (1fr = 1 fraction of remaining space) */
+    grid-gap: 40px;                          /* Adds 40px space between each grid item, both horizontally and vertically */
+    margin-top: 50px;                        /* Adds 50px space above the grid (separating it from the section above) */
+}
+
+.services-list div{
+    background: #262626;
+    padding: 40px;
+    font-size: 13px;
+    font-weight: 300;
+    border-radius: 10px;
+    transition: background 0.5s, transform 0.5s;
+}
+
+.services-list div i{
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.services-list div h2{
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+
+.services-list div a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 12px;
+    margin-top: 20px;
+    display: inline-block;
+}
+
+.services-list div:hover{
+    background: #ff004f;
+    transform: translateY(-10px);
 }
