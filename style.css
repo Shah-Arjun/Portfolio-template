@@ -206,7 +206,10 @@ nav ul li a:hover::after {
     font-size: 13px;
     font-weight: 300;
     border-radius: 10px;
-    transition: background 0.5s, transform 0.5s;
+transition: background 0.5s, transform 0.5s;      /* Smoothly animates changes to:
+                                                         1. background → over 0.5 seconds
+                                                         2. transform (scale, rotate, translate, etc.) → over 0.5 seconds
+                                                         This makes hover or state changes look gradual instead of instant */
 }
 
 .services-list div i{
