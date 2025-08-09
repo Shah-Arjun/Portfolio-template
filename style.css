@@ -1,49 +1,63 @@
 * {
-    margin: 0;                     /* Removes default outer spacing from ALL elements */
-    padding: 0;                    /* Removes default inner spacing from ALL elements */
-    font-family: 'Poppins', sans-serif; /* Sets 'Poppins' font for ALL elements; if unavailable, uses a generic sans-serif */
-    box-sizing: border-box;        /* Makes element width/height include padding & border (easier layout control) */
+    margin: 0;
+    /* Removes default outer spacing from ALL elements */
+    padding: 0;
+    /* Removes default inner spacing from ALL elements */
+    font-family: 'Poppins', sans-serif;
+    /* Sets 'Poppins' font for ALL elements; if unavailable, uses a generic sans-serif */
+    box-sizing: border-box;
+    /* Makes element width/height include padding & border (easier layout control) */
 }
 
 body {
-    background: #080808;           /* Sets the background color of the page to a very dark shade (near black) */
-    color: #fff;                   /* Sets the default text color to white */
+    background: #080808;
+    /* Sets the background color of the page to a very dark shade (near black) */
+    color: #fff;
+    /* Sets the default text color to white */
 }
 
 
-/* header section */
+/* -------------header section------------- */
 #header {
-    width: 100%;                             /*header take the full width of the browser window */
-    height: 100vh;                           /* Sets the header height to 100% of the viewport height (vh = viewport height unit) */
-    background-image: url(images/background.png); 
-    background-size: cover;                  /* Scales the background image so it completely covers the area, cropping if necessary */
-    background-position: center;             /* Positions the background image so its center is aligned with the center of the element */
+    width: 100%;
+    /*header take the full width of the browser window */
+    height: 100vh;
+    /* Sets the header height to 100% of the viewport height (vh = viewport height unit) */
+    background-image: url(images/background.png);
+    background-size: cover;
+    /* Scales the background image so it completely covers the area, cropping if necessary */
+    background-position: center;
+    /* Positions the background image so its center is aligned with the center of the element */
 }
 
-/* Navabar */
+/* .........Navabar........ */
 .container {
-    padding: 10px 10%;      /* Adds 10px padding on top & bottom, and 10% of the element's width as padding on left & right */
+    padding: 10px 10%;
+    /* Adds 10px padding on top & bottom, and 10% of the element's width as padding on left & right */
 }
 
 nav {
-    display: flex;       
-    align-items: center;    
-    justify-content: space-between; /* Places the first child at the far left, last child at the far right, with space between them */
-    flex-wrap: wrap;        /* Allows items to wrap onto a new line if they don't fit in one row */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Places the first child at the far left, last child at the far right, with space between them */
+    flex-wrap: wrap;
+    /* Allows items to wrap onto a new line if they don't fit in one row */
 }
 
-.logo{
+.logo {
     width: 140px;
 }
 
-nav ul li{
-    display: inline-block;      /*   display horizontally */
+nav ul li {
+    display: inline-block;
+    /*   display horizontally */
     list-style: none;
     margin: 10px 20px;
-    
+
 }
 
-nav ul li a{
+nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 18px;
@@ -54,33 +68,130 @@ nav ul li a{
 /* for red line below each navbar links */
 
 nav ul li a::after {
-    content: ' ';                /* Creates a pseudo-element after the <a> tag; required for it to exist */
-    width: 0%;                    /* Starts with zero width (relative to the <a> element’s width) */
-    height: 3px;                  /* Height of the underline effect */
-    background: #ff004f;          /* Color of the underline effect (a bright pink/red) */
-    position: absolute;           /* Positions the underline relative to the nearest positioned ancestor (usually the <a>) */
-    left: 0;                       /* Aligns the underline to the left edge of the <a> */
-    bottom: -6px;                  /* Places the underline slightly below the <a> text */
-    transition: 0.5s;              /* Smoothly animates property changes over 0.5 seconds (used for the width change on hover) */
+    content: ' ';
+    /* Creates a pseudo-element after the <a> tag; required for it to exist */
+    width: 0%;
+    /* Starts with zero width (relative to the <a> element’s width) */
+    height: 3px;
+    /* Height of the underline effect */
+    background: #ff004f;
+    /* Color of the underline effect (a bright pink/red) */
+    position: absolute;
+    /* Positions the underline relative to the nearest positioned ancestor (usually the <a>) */
+    left: 0;
+    /* Aligns the underline to the left edge of the <a> */
+    bottom: -6px;
+    /* Places the underline slightly below the <a> text */
+    transition: 0.5s;
+    /* Smoothly animates property changes over 0.5 seconds (used for the width change on hover) */
 }
 
 nav ul li a:hover::after {
-    width: 100%;                   /* On hover, the underline grows to match the full width of the <a> */
+    width: 100%;
+    /* On hover, the underline grows to match the full width of the <a> */
 }
 
 
 
 /* for header text */
-.header-text{
+.header-text {
     margin-top: 20%;
     font-size: 30px;
 }
 
-.header-text h1{
+.header-text h1 {
     font-size: 60px;
     margin-top: 20px;
 }
 
-.header-text h1 span{
+.header-text h1 span {
     color: #ff004f;
+}
+
+
+
+/* ----------------About section------------- */
+#about {
+    padding: 80px 0;
+    color: #ababab;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.about-col-1 {
+    flex-basis: 35%;
+    /* about-col-1 takes 35% width of flex box  */
+}
+
+.about-col-1 img {
+    width: 100%;
+    /* 100% width of about-col-1 */
+    border-radius: 15px;
+}
+
+.about-col-2 {
+    flex-basis: 60%;
+    /* about-col-2 takes 60% width of flex box , so remaining 5% wil ba gap between col-1 nad col-2 */
+}
+
+/* About Me text */
+.sub-title {
+    font-size: 60px;
+    font-weight: 600;
+    color: #fff;
+}
+
+/* tab links */
+.tab-titles {
+    display: flex;
+    margin: 20px 0 40px;
+}
+
+.tab-links {
+    margin-right: 50px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+}
+
+/* red line under tab links */
+.tab-links::after{
+    content: ' ';
+    width: 0;
+    height: 3px;
+    background: #ff004f;
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    transition: 0.5s;
+}
+
+.tab-links.active-link::after{        /* making by default active of skill tab */
+    width: 50%;
+}
+
+
+/* tab contents */
+.tab-contents ul li{
+    list-style: none;
+    margin: 10px 0;
+}
+
+.tab-contents ul li span{
+    color: #b54769;
+    font-size: 14px;
+}   
+
+
+.tab-contents{
+    display: none;        /* hide all the tab contents */
+}
+
+.tab-contents.active-tab{
+    display: block;         /* shows only active tag */
 }
