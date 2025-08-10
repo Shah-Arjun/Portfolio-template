@@ -22,13 +22,15 @@
       <!-- Navbar -->
       <nav>
         <img src="images/logo.png" class="logo" alt="logo">
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
+        <ul  id="sidemenu">
+          <li><a href="#header">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <i class="fa-solid fa-xmark" onclick="closeMenu(sidemenu)"></i>       <!-- for small screen  close X icon-->
         </ul>
+         <i class="fa-solid fa-bars" onclick="openMenu()"></i>          <!-- for small screen menu icon  -->
       </nav>
 
       <!-- Header text -->
@@ -206,6 +208,7 @@
   <!-- -------------JavaScript goes here------------- -->
   <script>
 
+    // for about me section tab
     var tablinks = document.getElementsByClassName("tab-links");
     var tabcontents = document.getElementsByClassName("tab-contents");
 
@@ -219,6 +222,21 @@
       event.currentTarget.classList.add("active-link");
       document.getElementById(tabname).classList.add("active-tab")
     }
+
+//for navbar in small screen
+var sidemenu =   document.getElementById("sidemenu");
+
+function openMenu() {               //opens the nav links on clicking menu bar
+sidemenu.style.right = "0";          // sidemenu ko style css ko right property ma 0 hal
+}
+
+function closeMenu(navlinks) {               //closes the nav links on clicking -> X
+sidemenu.style.right = "-200px";          // sidemenu ko style css ko right property ma -200px hal
+}
+
+
+
+
   </script>
 
 
