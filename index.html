@@ -196,6 +196,7 @@
           <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
           <button class="btn btn2" type="submit">Submit</button>
         </form>
+        <span id="msg"></span>        <!-- for displaying message when form is submitted-->
       </div>
     </div>
   </div>
@@ -211,11 +212,18 @@
     // for google sheet
     const scriptURL = 'https://script.google.com/macros/s/AKfycbx-TYYEME202eqBjm2hV8gMAr9s-9SgaLWaYEzHV37Tpbv6ByVOEysIDSj2yBzTksAu/exec'
     const form = document.forms['submit-to-google-sheet']
+    const msg =document.getElementById("msg")
 
      form.addEventListener('submit', e => {
     e.preventDefault()
     fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-      .then(response => console.log('Success!', response))
+      .then(response => {
+        msg.innerHTML = "Message sent successfully"
+        setTimeout(function(){             //after 5 miliseconds the msg will dissapear/empty
+          msg.innerHTML = ""
+        }, 5000)
+        form.reset()               //reset the form after submit/ makes empty form
+      })
       .catch(error => console.error('Error!', error.message))
   })
 
