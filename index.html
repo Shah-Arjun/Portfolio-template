@@ -190,9 +190,9 @@
         <a href="images/my-cv.pdf" download class="btn btn2">Download CV</a>
       </div>
       <div class="contact-right">
-        <form>
+        <form name="submit-to-google-sheet">
           <input type="text" name="Name" placeholder="Your Name" required>
-          <input type="email" name="email" placeholder="Your Email" required>
+          <input type="email" name="Email" placeholder="Your Email" required>
           <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
           <button class="btn btn2" type="submit">Submit</button>
         </form>
@@ -207,6 +207,18 @@
 
   <!-- -------------JavaScript goes here------------- -->
   <script>
+
+    // for google sheet
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx-TYYEME202eqBjm2hV8gMAr9s-9SgaLWaYEzHV37Tpbv6ByVOEysIDSj2yBzTksAu/exec'
+    const form = document.forms['submit-to-google-sheet']
+
+     form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+
 
     // for about me section tab
     var tablinks = document.getElementsByClassName("tab-links");
@@ -223,18 +235,16 @@
       document.getElementById(tabname).classList.add("active-tab")
     }
 
-//for navbar in small screen
-var sidemenu =   document.getElementById("sidemenu");
+    //for navbar in small screen
+    var sidemenu = document.getElementById("sidemenu");
 
-function openMenu() {               //opens the nav links on clicking menu bar
-sidemenu.style.right = "0";          // sidemenu ko style css ko right property ma 0 hal
-}
+    function openMenu() {               //opens the nav links on clicking menu bar
+      sidemenu.style.right = "0";          // sidemenu ko style css ko right property ma 0 hal
+    }
 
-function closeMenu(navlinks) {               //closes the nav links on clicking -> X
-sidemenu.style.right = "-200px";          // sidemenu ko style css ko right property ma -200px hal
-}
-
-
+    function closeMenu(navlinks) {               //closes the nav links on clicking -> X
+      sidemenu.style.right = "-200px";          // sidemenu ko style css ko right property ma -200px hal
+    }
 
 
   </script>
