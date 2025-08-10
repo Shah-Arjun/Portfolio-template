@@ -5,6 +5,10 @@
     box-sizing: border-box;                       /* Makes element width/height include padding & border (easier layout control) */
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body {
     background: #080808;                       /* Sets the background color of the page to a very dark shade (near black) */
     color: #fff;                               /* Sets the default text color to white */
@@ -18,6 +22,9 @@ body {
     background-image: url(images/background.png);
     background-size: cover;                         /* Scales the background image so it completely covers the area, cropping if necessary */
     background-position: center;                    /* Positions the background image so its center is aligned with the center of the element */
+
+    padding-top: 80px; /* adjust based on navbar height */
+
 }
 
 /* .........Navabar........ */
@@ -28,9 +35,18 @@ body {
 nav {
     display: flex;
     align-items: center;
-    justify-content: space-between;                  /* Places the first child at the far left, last child at the far right, with space between them */
-    flex-wrap: wrap;                                /* Allows items to wrap onto a new line if they don't fit in one row */
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    position: fixed;   /* Keeps navbar fixed in place */
+    top: 0;            /* Sticks it to the top of the page */
+    left: 0;           /* Aligns to the left edge */
+    width: 100%;       /* Makes it full width */
+    background: #080808; /* Give it a solid background so it’s visible when scrolling */
+    z-index: 1000;     /* Makes sure it stays above other elements */
+    padding: 10px 10%; /* Keep your existing padding */
 }
+
 
 .logo {
     width: 140px;
