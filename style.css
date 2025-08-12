@@ -19,7 +19,7 @@ body {
 #header {
     width: 100%;                               /*header take the full width of the browser window */
     height: 100vh;                              /* Sets the header height to 100% of the viewport height (vh = viewport height unit) */
-    background-image: url(images/background.png);
+    background-image: url(images/mypic.png);
     background-size: cover;                         /* Scales the background image so it completely covers the area, cropping if necessary */
     background-position: center;                    /* Positions the background image so its center is aligned with the center of the element */
 
@@ -435,7 +435,7 @@ nav .fa-solid{
 @media only screen and (max-width: 600px) {
     /* -------------for header section */
     #header {
-        background-image: url(images/phone-background.png);
+        background-image: url(images/mypic11.png);
     }
 
     .header-text {
