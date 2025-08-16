@@ -18,8 +18,6 @@ form.addEventListener("submit", (e) => {
     .catch((error) => console.error("Error!", error.message));
 });
 
-
-
 // -----------------for about me section tab
 var tablinks = document.getElementsByClassName("tab-links");
 var tabcontents = document.getElementsByClassName("tab-contents");
@@ -35,8 +33,6 @@ function opentab(tabname) {
   document.getElementById(tabname).classList.add("active-tab");
 }
 
-
-
 //--------------for navbar in small screen
 var sidemenu = document.getElementById("sidemenu");
 
@@ -50,5 +46,24 @@ function closeMenu(navlinks) {
   sidemenu.style.right = "-200px"; // sidemenu ko style css ko right property ma -200px hal
 }
 
+//---------------EmaiJS functionality
+function sendMail() {
+  var params = {
+    name: document.getElementById("name").value,
+    email: document.getElementById("email").value,
+    message: document.getElementById("message").value,
+  };
 
-//---------------EmaiJS
+  const serviceID = "service_eccgofv";
+  const templateID = "template_efcn76c";
+
+  emailjs.send(serviceID, templateID, params)
+  .then((res) => {
+    document.getElementById("name").value = "";
+    document.getElementById("email").value = "";
+    document.getElementById("message").value;
+    console.log(res);
+    alert("Your message has been submitted successfully.");
+  })
+  .catch((err) => console.log(err));
+}
