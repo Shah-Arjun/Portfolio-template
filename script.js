@@ -8,11 +8,11 @@ form.addEventListener("submit", (e) => {
   e.preventDefault();
   fetch(scriptURL, { method: "POST", body: new FormData(form) })
     .then((response) => {
-      msg.innerHTML = "Message sent successfully";
+      msg.alert = "Message sent successfully";
       setTimeout(function () {
         //after 5 miliseconds the msg will dissapear/empty
         msg.innerHTML = "";
-      }, 5000);
+      }, 500);
       form.reset(); //reset the form after submit/ makes empty form
     })
     .catch((error) => console.error("Error!", error.message));
