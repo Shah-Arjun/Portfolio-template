@@ -135,11 +135,11 @@ function appendMessage(sender, text) {                                 // sender
 }
 
 // Bot response
-function getBotResponse(input) {
+function getBotResponse(input) {                              // passed input is send by user/client
   input = input.toLowerCase();
-  for (let faq of faqs) {
-    for (let pattern of faq.patterns) {
-      if (input.includes(pattern)) {
+  for (let faq of faqs) {                                  // goto each objects of array
+    for (let pattern of faq.patterns) {                       // goto each patterns of objects
+      if (input.includes(pattern)) {                          // if user-input contains text 
         return faq.responses[Math.floor(Math.random() * faq.responses.length)];
       }
     }
