@@ -519,3 +519,83 @@ nav .fa-solid{
         font-size: 14px;
     }
 }
+
+
+
+/*--------------------------- for chatbots----------------------- */
+/* Floating Icon */
+#chat-icon {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ff0000;
+  color: #fff;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  font-size: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(255,0,0,0.5);
+  z-index: 999;
+}
+
+/* Chat Container Hidden by Default */
+#chat-container {
+  width: 350px;
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  border: 2px solid #ff0000;
+  border-radius: 15px;
+  background: #111;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 15px rgba(255,0,0,0.5);
+  overflow: hidden;
+  display: none;
+  flex-direction: column;
+  z-index: 1000;
+}
+
+/* Header */
+#chat-header {
+  background: #ff0000;
+  color: #fff;
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+  font-size: 16px;
+  position: relative;
+}
+
+#close-btn {
+  position: absolute;
+  right: 10px;
+  cursor: pointer;
+}
+
+/* Chat Box */
+#chat-box {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background: #000;
+}
+
+/* Messages */
+.user-msg { color: #ff4d4d; margin: 5px 0; text-align: right; }
+.bot-msg { color: #fff; margin: 5px 0; text-align: left; }
+
+/* Input Area */
+#chat-input-area {
+  display: flex;
+  padding: 10px;
+  background: #111;
+  border-top: 1px solid #ff0000;
+}
+#user-input { flex: 1; padding: 8px; border-radius: 5px; border: none; outline: none; background: #222; color: #fff; }
+#send-btn { padding: 8px 12px; margin-left: 5px; border: none; border-radius: 5px; background: #ff0000; color: #fff; cursor: pointer; transition: transform 0.2s; }
+#send-btn:hover { transform: scale(1.05); }

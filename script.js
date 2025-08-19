@@ -57,13 +57,111 @@ function sendMail() {
   const serviceID = "service_eccgofv";
   const templateID = "template_efcn76c";
 
-  emailjs.send(serviceID, templateID, params)
-  .then((res) => {
-    document.getElementById("name").value = "";
-    document.getElementById("email").value = "";
-    document.getElementById("message").value;
-    console.log(res);
-    alert("Your message has been submitted successfully.");
-  })
-  .catch((err) => console.log(err));
+  emailjs
+    .send(serviceID, templateID, params)
+    .then((res) => {
+      document.getElementById("name").value = "";
+      document.getElementById("email").value = "";
+      document.getElementById("message").value;
+      console.log(res);
+      alert("Your message has been submitted successfully.");
+    })
+    .catch((err) => console.log(err));
 }
+
+
+
+
+
+// -----------------for chatbot
+// Elements
+const chatIcon = document.getElementById("chat-icon");
+const chatContainer = document.getElementById("chat-container");
+const closeBtn = document.getElementById("close-btn");
+const chatBox = document.getElementById("chat-box");
+const userInput = document.getElementById("user-input");
+const sendBtn = document.getElementById("send-btn");
+
+// Toggle chat visibility
+chatIcon.addEventListener("click", () => (chatContainer.style.display = "flex"))
+closeBtn.addEventListener("click", () => (chatContainer.style.display = "none"))
+
+// FAQ Bot Data , for testing , to be aaded more que-ans.
+const faqs = [
+  {
+    patterns: ["who are you", "yourself", "introduce", "name", "introduction"],
+    responses: [
+      "I'm Arjun Shah, a CSIT student and aspiring web & mobile app developer!",
+      "Hey! I'm Arjun, passionate about coding and building projects.",
+    ],
+  },
+  {
+    patterns: ["projects", "what have you built", "portfolio", "what have you done"],
+    responses: [
+      "I have built apps like a Calculator App, Family Record App, and Quiz App.",
+      "Check out my projects: Calculator, Family Record, and Quiz applications!",
+    ],
+  },
+  {
+    patterns: ["technologies", "skills", "tech stack", "programming", "programs", "language"],
+    responses: [
+      "I work with HTML, CSS, JavaScript, React, Node.js, and Flutter.",
+      "My main tech stack includes React for web and Flutter for mobile apps.",
+    ],
+  },
+  {
+    patterns: ["contact", "reach you", "email", "linkdin", "github"],
+    responses: [
+      "You can reach me at arjun.079csit05@godawari.edu.np or connect with me on LinkedIn - Arjun Shah.",
+      "Feel free to contact me via email or LinkedIn anytime!",
+    ],
+  },
+  {
+    patterns: ["learn coding", "help me", "teach coding", "how to learn codeing", "Which language is best"],
+    responses: [
+      "Absolutely! I share coding tips and resources on my portfolio and LinkedIn.",
+      "Sure! I love helping beginners get started with coding.",
+    ],
+  },
+];
+
+// Append message
+function appendMessage(sender, text) {                                 // sender -> tells who sent the message (user or bot) , textt -> actual message constent
+  const msgDiv = document.createElement("div");                          // makes a new div 
+  msgDiv.className = sender === "user" ? "user-msg" : "bot-msg";        // identify id sender is user or bot and set div class
+  msgDiv.textContent = text;                                           // put actual message inside the box
+  chatBox.appendChild(msgDiv);                                        // adds the new message box into the chat area (chatBox).
+  chatBox.scrollTop = chatBox.scrollHeight;                            // chat box automatically scroll down so the latest message is visible.
+}
+
+// Bot response
+function getBotResponse(input) {
+  input = input.toLowerCase();
+  for (let faq of faqs) {
+    for (let pattern of faq.patterns) {
+      if (input.includes(pattern)) {
+        return faq.responses[Math.floor(Math.random() * faq.responses.length)];
+      }
+    }
+  }
+  const fallback = [
+    "Sorry, I didn't understand that. Try asking differently!",
+    "Hmm, not sure about that. Ask me about my projects or skills.",
+    "I'm learning every day! Ask me something else.",
+  ];
+  return fallback[Math.floor(Math.random() * fallback.length)];
+}
+
+// Send event
+sendBtn.addEventListener("click", () => {
+  const input = userInput.value.trim();
+  if (!input) return;
+  appendMessage("user", input);
+  appendMessage("bot", getBotResponse(input));
+  userInput.value = "";
+});
+
+// Enter key
+userInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") sendBtn.click();
+});
