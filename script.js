@@ -89,7 +89,7 @@ closeBtn.addEventListener("click", () => (chatContainer.style.display = "none"))
 // FAQ Bot Data , for testing , to be aaded more que-ans.
 const faqs = [
   {
-    patterns: ["HEllo", "Hi", "Hey"],
+    patterns: ["HEllo", "Hi", "Hey", "hey"],
     responses: [
       "Hey! I'm Arjun, what about you ?"
     ],
